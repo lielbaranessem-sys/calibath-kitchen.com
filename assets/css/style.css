@@ -64,7 +64,7 @@ h1,h2,h3,h4,h5{font-family:var(--font-heading);font-weight:500;line-height:1.1;l
 .btn{
   display:inline-flex;align-items:center;justify-content:center;gap:.55rem;
   font-family:var(--font-body);font-weight:500;font-size:.82rem;
-  text-transform:uppercase;letter-spacing:.16em;white-space:nowrap;text-align:center;
+  text-transform:uppercase;letter-spacing:.16em;text-align:center;
   padding:15px 30px;border-radius:var(--radius);
   transition:all .35s ease;cursor:pointer;border:1px solid transparent;
 }
@@ -106,7 +106,7 @@ h1,h2,h3,h4,h5{font-family:var(--font-heading);font-weight:500;line-height:1.1;l
 .dropdown a:hover{background:hsl(var(--secondary));color:hsl(var(--primary))}
 .header-cta{display:flex;align-items:center;gap:14px}
 .header-phone{font-size:.8rem;letter-spacing:.03em;color:hsl(var(--foreground)/.85);white-space:nowrap}
-.header-cta .btn{padding:12px 22px;font-size:.76rem;letter-spacing:.12em}
+.header-cta .btn{padding:12px 22px;font-size:.76rem;letter-spacing:.12em;white-space:nowrap}
 .header-phone b{color:hsl(var(--primary))}
 .burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:6px}
 .burger span{width:26px;height:2px;background:hsl(var(--foreground));transition:.3s}
