@@ -115,6 +115,8 @@ h1,h2,h3,h4,h5{font-family:var(--font-heading);font-weight:500;line-height:1.1;l
 .hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden}
 .hero-media{position:absolute;inset:0;z-index:-2}
 .hero-media img,.hero-media video{width:100%;height:100%;object-fit:cover}
+.hero-media-video{display:none}
+@media(min-width:1025px){.hero-media-img{display:none}.hero-media-video{display:block}}
 .hero::after{content:"";position:absolute;inset:0;z-index:-1;
   background:linear-gradient(90deg,hsl(var(--background)/.92) 0%,hsl(var(--background)/.7) 45%,hsl(var(--background)/.35) 100%);}
 .hero-inner{max-width:660px;padding:120px 0 60px}
@@ -245,6 +247,14 @@ a.svc-card:hover .arrow{background:hsl(var(--primary));border-color:hsl(var(--pr
 .tv-item video{width:100%;display:block;aspect-ratio:16/10;object-fit:cover;background:#000}
 .tv-badge{position:absolute;top:14px;left:14px;background:hsl(var(--background)/.9);border:1px solid hsl(var(--border));border-radius:100px;padding:6px 12px;font-size:.76rem;font-weight:600;display:flex;gap:6px;align-items:center}
 .tv-badge b{color:#fbbc05}
+/* click-to-play overlay for testimonial/story videos */
+.video-wrap{position:relative;display:block;line-height:0}
+.video-play-btn{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;width:100%;height:100%;padding:0;border:0;cursor:pointer;background:radial-gradient(ellipse at center,hsl(var(--background)/.15),hsl(var(--background)/.55));transition:opacity .25s ease,background .25s ease;z-index:2}
+.video-play-btn:hover{background:radial-gradient(ellipse at center,hsl(var(--background)/.05),hsl(var(--background)/.45))}
+.video-play-btn::before{content:"";width:78px;height:78px;border-radius:50%;background:hsl(var(--primary)/.94);box-shadow:0 12px 34px rgba(0,0,0,.45);transition:transform .2s ease}
+.video-play-btn::after{content:"";position:absolute;left:50%;top:50%;transform:translate(-42%,-50%);border-style:solid;border-width:14px 0 14px 24px;border-color:transparent transparent transparent hsl(var(--primary-foreground,0 0% 100%))}
+.video-play-btn:hover::before{transform:scale(1.06)}
+.video-wrap.playing .video-play-btn{opacity:0;pointer-events:none}
 @media(max-width:720px){.tv-grid.tv-2{grid-template-columns:1fr}}
 
 /* centered form/hero pages */

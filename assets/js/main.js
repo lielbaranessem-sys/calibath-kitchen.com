@@ -53,4 +53,26 @@
     entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
   },{threshold:.12});
   document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+
+  // click-to-play overlay for content videos (not the hero background)
+  var vids=[].slice.call(document.querySelectorAll('video:not(.hero-media-video)'));
+  vids.forEach(function(v){
+    v.removeAttribute('autoplay');
+    if(!v.getAttribute('preload')) v.preload='metadata';
+    var wrap=document.createElement('div');
+    wrap.className='video-wrap';
+    v.parentNode.insertBefore(wrap,v);
+    wrap.appendChild(v);
+    var btn=document.createElement('button');
+    btn.type='button'; btn.className='video-play-btn';
+    btn.setAttribute('aria-label','Play video');
+    wrap.appendChild(btn);
+    btn.addEventListener('click',function(){ var p=v.play(); if(p&&p.catch) p.catch(function(){}); });
+    v.addEventListener('play',function(){
+      wrap.classList.add('playing');
+      vids.forEach(function(o){ if(o!==v) o.pause(); });
+    });
+    v.addEventListener('pause',function(){ wrap.classList.remove('playing'); });
+    v.addEventListener('ended',function(){ wrap.classList.remove('playing'); });
+  });
 })();
