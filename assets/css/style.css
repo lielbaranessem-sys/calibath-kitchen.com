@@ -244,7 +244,7 @@ a.svc-card:hover .arrow{background:hsl(var(--primary));border-color:hsl(var(--pr
 .tv-grid.tv-2{grid-template-columns:repeat(2,1fr)}
 .tv-grid.tv-1{grid-template-columns:minmax(0,560px);justify-content:center}
 .tv-item{position:relative;border-radius:var(--radius);overflow:hidden;border:1px solid hsl(var(--border));background:#000}
-.tv-item video{width:100%;display:block;aspect-ratio:16/10;object-fit:cover;background:#000}
+.tv-item video{width:100%;display:block;aspect-ratio:4/5;object-fit:cover;object-position:center top;background:#000}
 .tv-badge{position:absolute;top:14px;left:14px;background:hsl(var(--background)/.9);border:1px solid hsl(var(--border));border-radius:100px;padding:6px 12px;font-size:.76rem;font-weight:600;display:flex;gap:6px;align-items:center}
 .tv-badge b{color:#fbbc05}
 /* click-to-play overlay for testimonial/story videos */
